@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Kat</string>
+
+    <!-- main xml -->
+    <string name="tv_call">唤出</string>
+
+</resources>
