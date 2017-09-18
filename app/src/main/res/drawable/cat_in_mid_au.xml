@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+
+    <item android:drawable="@drawable/cat_in_mid_au1" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au2" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au3" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au4" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au5" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au6" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au7" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au8" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au9" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au10" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au11" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au12" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au13" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au14" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au15" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au16" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au17" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au18" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au19" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au20" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au21" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au22" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au23" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au24" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au25" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au26" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au27" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au28" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au29" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au30" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au31" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au32" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au33" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au34" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au35" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au36" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au37" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au38" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au39" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au40" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au41" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au42" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au43" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au44" android:duration="70"/>
+    <item android:drawable="@drawable/cat_in_mid_au45" android:duration="70"/>
+
+</animation-list>

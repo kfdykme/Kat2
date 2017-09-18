@@ -1,6 +1,8 @@
 package xyz.kfdykme.kat.basic;
 
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.Toast;
 
 /**
@@ -13,6 +15,8 @@ import android.widget.Toast;
 
 public class KatActivity extends AppCompatActivity {
 
+    Toolbar mToolbar;
+
     public void showToast(String toast){
         Toast.makeText(this,toast,Toast.LENGTH_SHORT).show();
     }
@@ -24,5 +28,18 @@ public class KatActivity extends AppCompatActivity {
     public KatActivity getActivity(){
         return this;
     }
+
+    public void initToolbar(Toolbar toolbar){
+        mToolbar = toolbar;
+        setSupportActionBar(mToolbar);
+        mToolbar.setNavigationIcon(android.R.drawable.btn_dropdown);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+    }
+
 
 }

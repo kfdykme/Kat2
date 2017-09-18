@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_corner_view">
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="message"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/iv"
+        android:layout_toEndOf="@+id/iv"
+        android:background="@drawable/shape_corner"
+        android:textColor="@color/title_bg_color"
+        android:padding="8dp"
+        android:maxWidth="200dp"
+        android:visibility="gone"/>
+<ImageView
+    android:id="@+id/iv"
+    android:layout_width="72dp"
+    android:layout_height="72dp"
+    android:layout_below="@+id/tv_message"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+</RelativeLayout>

@@ -1,5 +1,7 @@
 package xyz.kfdykme.kat.basic;
 
+import android.content.Context;
+
 /**
  * Project Name: Kat
  * Class Description:
@@ -8,14 +10,14 @@ package xyz.kfdykme.kat.basic;
  * 修改备注：
  */
 
-public abstract class KatView<E extends EventListener> implements IView<E> {
+public abstract class KatView<E extends EventListener> implements IView<E>{
 
-    private KatActivity mActivity;
+    private Context context;
 
     private E mEventListener;
 
-    public KatView(KatActivity activity) {
-        this.mActivity = activity;
+    public KatView(Context context) {
+        this.context = context;
     }
 
     @Override
@@ -23,8 +25,12 @@ public abstract class KatView<E extends EventListener> implements IView<E> {
         this.mEventListener = eventListener;
     }
 
-    public KatActivity getActivity() {
-        return mActivity;
+    public E getEventListener() {
+        return mEventListener;
+    }
+
+    public Context getContext() {
+        return context;
     }
 
 

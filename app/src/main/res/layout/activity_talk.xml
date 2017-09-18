@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="xyz.kfdykme.kat.talk.TalkActivity">
+
+    <EditText
+        android:layout_width="334dp"
+        android:layout_height="76dp"
+        android:minHeight="72dp"
+        android:hint="上天吧"
+        android:imeOptions="actionDone"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/et_talk"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tv_send"
+        android:text="send"
+        android:layout_width="41dp"
+        android:layout_height="72dp"
+        app:layout_constraintLeft_toRightOf="@+id/et_talk"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="@+id/et_talk"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_talk"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.511"
+        tools:layout_editor_absoluteY="457dp"
+        tools:layout_editor_absoluteX="342dp" />
+
+    <ScrollView
+        android:layout_width="369dp"
+        android:layout_height="396dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.505"
+        app:layout_constraintBottom_toTopOf="@+id/et_talk">
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_talk"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorAccent"
+            android:text="@string/app_name"/>
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>
