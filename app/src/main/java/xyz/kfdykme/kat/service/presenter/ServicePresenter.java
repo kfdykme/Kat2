@@ -146,27 +146,7 @@ public class ServicePresenter extends KatPresenter<ServiceModel, ServiceView> im
             Log.i("Service", "Click");
             toHide(null);
             new NoteListDialog(getContext()).show();
-            //
-//            APIService.getInstance().communicate(new OnResultListener<CommunicateResponse>() {
-//                @Override
-//                public void onResult(CommunicateResponse result) {
-//
-//                    Toast.makeText(getContext(),result.getJsonRes(),Toast.LENGTH_SHORT);
-//
-//                    Log.i("Api",result.toString());
-//                    Log.i("Api",result.getJsonRes());
-//                    Log.i("Api",result.jsonRes);
-//                }
-//
-//                @Override
-//                public void onError(UnitError error) {
-//                    if(error != null) {
-//                        Log.i("Api", error.getErrorMessage());
-//                    } else{
-//                        Log.i("Api","eror is null");
-//                    }
-//                }
-//            }, 5419, "我想看周星驰的电影", null);
+
 
         }
 
@@ -382,8 +362,9 @@ public class ServicePresenter extends KatPresenter<ServiceModel, ServiceView> im
 
         @Override
         public void onUnitResult(UNITResult result) {
-
-
+            if(result == null || result.getResult() == null){
+                return;
+            }
             String say = result.getResult().getAction_list().get(0).getSay();
             String hint_query = "";
             for(Hint hint :result.getResult().getAction_list().get(0).getHint_list()){
