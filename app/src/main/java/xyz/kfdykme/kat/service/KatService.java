@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
@@ -25,7 +26,9 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import xyz.kfdykme.kat.MainActivity;
 import xyz.kfdykme.kat.R;
+import xyz.kfdykme.kat.receiver.RePositionReceiver;
 import xyz.kfdykme.kat.service.model.ServiceModel;
+import xyz.kfdykme.kat.service.presenter.IServicePresenter;
 import xyz.kfdykme.kat.service.presenter.ServicePresenter;
 import xyz.kfdykme.kat.service.view.ServiceView;
 
@@ -86,6 +89,10 @@ public class KatService extends Service {
         mServicePresenter.setMode(new ServiceModel());
         mServicePresenter.attach();
 
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("android.intent.action.CONFIGURATION_CHANGED");
+        registerReceiver(new RePositionReceiver(),filter);
+
     }
 
 
@@ -116,10 +123,12 @@ public class KatService extends Service {
     @Override
     public void onDestroy() {
 
-        EventBus.getDefault().unregister(this);
-        //showToast("Service killed");
-
         super.onDestroy();
+        if(EventBus.getDefault().isRegistered(this)){
+
+            EventBus.getDefault().unregister(this);
+        }
+
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
@@ -127,6 +136,16 @@ public class KatService extends Service {
         // if(text.substring(0,3).equals("post"))
         showToast(text);
         mServicePresenter.mEventListener.unitCommunicate(text);
+    }
+
+
+    /**
+     * @method onServiceEvent
+     * @desc call this method when screen rotate
+     */
+    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
+    public void onServiceEvent(ServiceEvent e){
+        mServicePresenter.toRun(IServicePresenter.FLAG_RIGHT);
     }
 
     public static boolean isRunning(Context context){
@@ -140,4 +159,8 @@ public class KatService extends Service {
 
         return false;
     }
+
+
+
 }
+

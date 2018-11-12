@@ -92,7 +92,7 @@
             android:layout_marginRight="52dp"
             android:background="@color/colorPrimary"
             android:rotation="30"
-            android:visibility="gone " />
+            android:visibility="gone" />
         <ImageView
             android:id="@+id/iv"
             android:layout_width="60dp"

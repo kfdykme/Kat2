@@ -100,6 +100,22 @@ public class ServicePresenter extends KatPresenter<ServiceModel, ServiceView> im
 //        asr.send(SpeechConstant.ASR_CANCEL, "{}", null, 0, 0);
     }
 
+    @Override
+    public void toRun(int flag) {
+        switch (flag){
+            case IServicePresenter.FLAG_RIGHT:
+
+                getView().getParams().x = getView().getWindowManager().getDefaultDisplay().getWidth();
+                mEventListener.toHide(null);
+                break;
+            default:
+                break;
+            //TODO: case left
+        }
+
+        getView().getWindowManager().updateViewLayout(getView().getRootView(), getView().getParams());
+    }
+
     private void start() {
         /**
          * 测试参数填在这里
@@ -117,18 +133,6 @@ public class ServicePresenter extends KatPresenter<ServiceModel, ServiceView> im
         asr.send(SpeechConstant.ASR_STOP, null, null, 0, 0); //
     }
 
-//
-//    private void loadOfflineEngine() {
-//        Map<String, Object> params = new LinkedHashMap<String, Object>();
-//        params.put(SpeechConstant.DECODER, 2);
-//        params.put(SpeechConstant.ASR_OFFLINE_ENGINE_GRAMMER_FILE_PATH, "assets://baidu_speech_grammar.bsg");
-//        asr.send(SpeechConstant.ASR_KWS_LOAD_ENGINE, new JSONObject(params).toString(), null, 0, 0);
-//    }
-//
-//    private void unloadOfflineEngine() {
-//        asr.send(SpeechConstant.ASR_KWS_UNLOAD_ENGINE, null, null, 0, 0); //
-//    }
-
 
     //基本的事件监听
     public KatServiceEventListener mEventListener = new KatServiceEventListener() {
@@ -145,7 +149,7 @@ public class ServicePresenter extends KatPresenter<ServiceModel, ServiceView> im
         public void onClick(View view) {
             Log.i("Service", "Click");
             toHide(null);
-            new NoteListDialog(getContext()).show();
+//            new NoteListDialog(getContext()).show();
 
 
         }
@@ -217,6 +221,8 @@ public class ServicePresenter extends KatPresenter<ServiceModel, ServiceView> im
             getView().getParams().y += (e.getRawY() - lastY);
 
         }
+
+
 
         @Override
         public void toHide(MotionEvent e) {

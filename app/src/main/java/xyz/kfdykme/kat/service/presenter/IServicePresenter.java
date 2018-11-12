@@ -16,4 +16,13 @@ import xyz.kfdykme.kat.service.view.ServiceView;
 
 public interface IServicePresenter extends IPresenter<ServiceModel,ServiceView>  {
     void seeNoteAfWrite();
+
+    /**
+     * @method toRun
+     * @param flag  1 == > right ; 2 ==> left
+     */
+    void toRun(int flag);
+
+    public static int FLAG_RIGHT  =1;
+    public static int FLAG_LEFT = 2;
 }
