@@ -3,6 +3,8 @@ package xyz.kfdykme.kat;
 import android.Manifest;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
+import android.app.ActivityManager;
+import android.app.ApplicationErrorReport;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -74,42 +76,13 @@ public class MainActivity extends KatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-//        try {
-//            final NoteListAdapter adapter = new NoteListAdapter(
-//                    FileHelper.readFileList(KatConstant.reDir),getActivity());
-//            adapter.setOnItemClickListener(new NoteListAdapter.OnItemClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    String name = ((TextView)view).getText().toString();
-//                    try {
-//                        String content = FileHelper.readFileByName(KatConstant.reDir,name+".kn");
-//                        KatNote note = new Gson().fromJson(content,KatNote.class);
-//                        new NoteDialog(note,getActivity()).show();
-//                        //getActivity().startActivity(new Intent(getActivity(), NoteActivity.class));
-//                        //EventBus.getDefault().postSticky(note);
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//
-//                @Override
-//                public void onLongCick(View view) {
-//                    try {
-//                        FileHelper.findFileByName(KatConstant.reDir,((TextView)view).getText().toString()).delete();
-//                        adapter.notifyDataSetChanged();
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            });
-//            rv.setAdapter(adapter);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            Toast.makeText(getActivity(),"can't load files",Toast.LENGTH_SHORT).show();
-//        }
 
-
+        if(KatService.isRunning(this)){
+            iv_view.setVisibility(View.GONE);
+        }
     }
+
+
 
     private void initPermission() {
         String permissions[] = {Manifest.permission.RECORD_AUDIO,

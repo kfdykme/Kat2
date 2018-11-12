@@ -1,6 +1,7 @@
 package xyz.kfdykme.kat.service;
 
 
+import android.app.ActivityManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
@@ -128,5 +129,15 @@ public class KatService extends Service {
         mServicePresenter.mEventListener.unitCommunicate(text);
     }
 
+    public static boolean isRunning(Context context){
+        //TODO: check if katservice is running and change main_view
+        ActivityManager am = (ActivityManager)(context.getSystemService(ACTIVITY_SERVICE));
 
+        for(ActivityManager.RunningServiceInfo serviceInfo : am.getRunningServices(Integer.MAX_VALUE)){
+            if("xyz.kfdykme.kat.service.KatService".equals(serviceInfo.service.getClassName()))
+                return true;
+        }
+
+        return false;
+    }
 }
