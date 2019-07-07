@@ -21,7 +21,7 @@ public interface IServiceView extends IView<KatServiceEventListener> {
 
     void move(MotionEvent motionEvent);
 
-    void hide(MotionEvent motionEvent,int type);
+    void hide(MotionEvent motionEvent, int type);
 
     void listen();
 

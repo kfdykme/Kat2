@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CommunicateResponse  extends ResponseResult {
 
-    public List<CommunicateResponse.Action> actionList = new ArrayList<>();
+    public List<Action> actionList = new ArrayList<>();
 
     public Schema schema;
 

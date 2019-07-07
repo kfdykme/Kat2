@@ -92,7 +92,13 @@ public class ServiceView extends KatView<KatServiceEventListener> implements ISe
         initWindow();
         Log.i("ServiceView","--------Window inited---");
 
-        mWindowManager.addView(rootView,mParams);
+        try {
+
+            mWindowManager.addView(rootView,mParams);
+        } catch (Exception e) {
+            e.printStackTrace();
+            showSendMessage("无法添加悬浮窗口,请先打开相关权限");
+        }
 
 
     }

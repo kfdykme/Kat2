@@ -102,19 +102,30 @@ public class KatService extends Service {
     }
 
     private void showNitification(){
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,new Intent(this, MainActivity.class),0);
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        try {
 
-                builder
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Kat")
-                .setContentText("   is running")
-                .setContentIntent(pendingIntent)
-                .setWhen(System.currentTimeMillis())
-                ;
+//            PendingIntent pendingIntent = PendingIntent.getActivity(this,0,new Intent(this, MainActivity.class),0);
+//
+//            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+//
+//                    builder
+//                    .setSmallIcon(R.mipmap.ic_launcher)
+//                    .setContentTitle("Kat")
+//                    .setContentText("   is running")
+//                    .setContentIntent(pendingIntent)
+//                    .setWhen(System.currentTimeMillis())
+//                    ;
+//
+//            startForeground(0x111,builder.build());
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
 
-        startForeground(0x111,builder.build());
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
     }
 
 

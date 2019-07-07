@@ -20,11 +20,11 @@ public interface IServiceModel extends IModel {
 
     void initAccessToken();
 
-    void saveSendMessage(Context context,String text);
+    void saveSendMessage(Context context, String text);
 
     void saveGetMessage(Context context, String text);
 
-    String getMessage(Context context,String key);
+    String getMessage(Context context, String key);
 
     int getSenceId();
 

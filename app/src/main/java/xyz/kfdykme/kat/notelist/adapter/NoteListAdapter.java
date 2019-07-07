@@ -37,7 +37,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     }
 
     @Override
-    public NoteListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.item_note_list,null,false);
         ViewHolder holder = new ViewHolder(view);
 
@@ -45,7 +45,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(NoteListAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.tv_fileName.setText(files.get(position).getName().substring(0,files.get(position).getName().length()-3));
 
         holder.tv_fileName.setOnLongClickListener(new View.OnLongClickListener() {
@@ -81,7 +81,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
 
     public interface  OnItemClickListener{
         void onClick(View view);
-        void onLongCick(View view,int pos,File file);
+        void onLongCick(View view, int pos, File file);
     }
 
     private OnItemClickListener onItemClickListener;
