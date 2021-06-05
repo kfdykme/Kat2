@@ -46,7 +46,7 @@ public class NoteDialog extends Dialog {
         mView = new NoteView(getContext());
         mPresenter.addView(mView);
         mPresenter.setMode(new NoteModel(note));
-        getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+        getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
         WindowManager.LayoutParams a = getWindow().getAttributes();
         a.height = WindowManager.LayoutParams.WRAP_CONTENT;
 

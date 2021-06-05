@@ -3,14 +3,10 @@ package xyz.kfdykme.kat.service.view;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Handler;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -21,8 +17,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.bumptech.glide.Glide;
 
 import xyz.kfdykme.kat.R;
 import xyz.kfdykme.kat.basic.KatView;
@@ -106,8 +100,9 @@ public class ServiceView extends KatView<KatServiceEventListener> implements ISe
 
         view.setOnClickListener(new View.OnClickListener() {
             Handler handler = new Handler();
-            Boolean isDbClick = false;
+            int clickCount = 0;
             Runnable r = null;
+            Runnable dbR = null;
             @Override
             public void onClick(View view) {
                 if (r == null ) {
@@ -115,20 +110,31 @@ public class ServiceView extends KatView<KatServiceEventListener> implements ISe
                     r = new Runnable() {
                         @Override
                         public void run() {
-                            isDbClick = false;
+                            clickCount = 0;
 
                             if(getEventListener()!=null)getEventListener().onClick(innerView);
                         }
                     };
-                }
-                if (isDbClick) {
-                    isDbClick = false;
 
-                    if(getEventListener()!=null)getEventListener().onLongClick(view);
+                    dbR = new Runnable() {
+                        @Override
+                        public void run() {
+                            clickCount = 0;
+                            if(getEventListener()!=null)getEventListener().onDbClick(innerView);
+                        }
+                    };
+                }
+                clickCount++;
+                if (clickCount == 3) {
+                    clickCount = 0;
+                    if (getEventListener() != null) getEventListener().onTriClick(view);
+                    handler.removeCallbacks(r);
+                    handler.removeCallbacks(dbR);
+                } else if (clickCount == 2) {
+                    handler.postDelayed(dbR, 200);
                     handler.removeCallbacks(r);
                 } else {
-                    isDbClick = true;
-                    handler.postDelayed(r, 500);
+                    handler.postDelayed(r, 200);
                 }
             }
         });

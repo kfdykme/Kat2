@@ -42,7 +42,7 @@ public class NoteListDialog extends Dialog {
     public NoteListDialog(@NonNull Context context) {
         super(context);
         setTitle("Note List");
-        getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+        getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
         WindowManager.LayoutParams a = getWindow().getAttributes();
         a.height = WindowManager.LayoutParams.WRAP_CONTENT;
         getWindow().setAttributes(a);

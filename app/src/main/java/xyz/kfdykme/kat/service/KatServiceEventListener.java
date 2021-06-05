@@ -17,6 +17,10 @@ import xyz.kfdykme.kat.model.UNITResult;
 public interface KatServiceEventListener extends xyz.kfdykme.kat.basic.EventListener{
     void onClick(View view);
 
+    void onDbClick(View view);
+
+    void onTriClick(View view);
+
     void onLongClick(View view);
 
     void onTouch(View view, MotionEvent motionEvent);

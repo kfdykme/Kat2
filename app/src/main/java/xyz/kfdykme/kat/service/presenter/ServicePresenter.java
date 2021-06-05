@@ -149,9 +149,17 @@ public class ServicePresenter extends KatPresenter<ServiceModel, ServiceView> im
         public void onClick(View view) {
             Log.i("Service", "Click");
             toHide(null);
-//            new NoteListDialog(getContext()).show();
+        }
 
+        @Override
+        public void onDbClick(View view) {
+            getView().move(null);
+        }
 
+        @Override
+        public void onTriClick(View view) {
+
+            new NoteListDialog(getContext()).show();
         }
 
         @Override
