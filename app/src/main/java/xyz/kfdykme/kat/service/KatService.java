@@ -61,6 +61,7 @@ public class KatService extends Service {
 
     public static final String TAG = "KatService";
 
+    private RePositionReceiver rePositionReceiver;
 
 
     public IBinder onBind(Intent intent) {
@@ -91,7 +92,8 @@ public class KatService extends Service {
 
         IntentFilter filter = new IntentFilter();
         filter.addAction("android.intent.action.CONFIGURATION_CHANGED");
-        registerReceiver(new RePositionReceiver(),filter);
+        rePositionReceiver = new RePositionReceiver();
+        registerReceiver(rePositionReceiver, filter);
 
     }
 
@@ -114,7 +116,7 @@ public class KatService extends Service {
                 .setWhen(System.currentTimeMillis())
                 ;
 
-        startForeground(0x111,builder.build());
+//        startForeground(0x111,builder.build());
     }
 
 
@@ -128,6 +130,7 @@ public class KatService extends Service {
 
             EventBus.getDefault().unregister(this);
         }
+        unregisterReceiver(rePositionReceiver);
 
     }
 

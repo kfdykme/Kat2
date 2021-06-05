@@ -3,9 +3,13 @@ package xyz.kfdykme.kat.service.view;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -164,10 +168,11 @@ public class ServiceView extends KatView<KatServiceEventListener> implements ISe
 
     @Override
     public void initWindow(){
+
         mWindowManager = (WindowManager) getContext().getSystemService(getContext().WINDOW_SERVICE);
         mParams = new WindowManager.LayoutParams();
 
-        mParams.type = WindowManager.LayoutParams.TYPE_PHONE;
+        mParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
         //mParams.
         mParams.format = PixelFormat.RGBA_8888;
         mParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;

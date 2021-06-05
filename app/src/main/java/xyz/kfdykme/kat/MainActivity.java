@@ -169,14 +169,18 @@ public class MainActivity extends KatActivity {
             if(!Settings.canDrawOverlays(this))
             {
                 showToast("当前无权限，请授权");
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+                intent.setData(Uri.parse("package:" + getPackageName()));
                 Intent i = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:"+getPackageName()));
                 startActivityForResult(i,1234);
             }else
 
              startService(new Intent(this,KatService.class));
-        }
+        } else {
 
-        startService(new Intent(this,KatService.class));
+
+            startService(new Intent(this,KatService.class));
+        }
 
 
 
