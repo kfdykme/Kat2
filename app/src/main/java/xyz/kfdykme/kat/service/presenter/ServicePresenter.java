@@ -78,20 +78,20 @@ public class ServicePresenter extends KatPresenter<ServiceModel, ServiceView> im
 
 
         getView().show();
-        APIService.getInstance().init(getContext());
+//        APIService.getInstance().init(getContext());
 
-        asr = EventManagerFactory.create(getContext(), "asr");
-        asr.registerListener(new com.baidu.speech.EventListener() {
-
-            @Override
-            public void onEvent(String name, String params, byte[] data, int offset, int length) {
-                mEventListener.onSpeechEvent(name, params, data, offset, length);
-            }
-        });
+//        asr = EventManagerFactory.create(getContext(), "asr");
+//        asr.registerListener(new com.baidu.speech.EventListener() {
+//
+//            @Override
+//            public void onEvent(String name, String params, byte[] data, int offset, int length) {
+//                mEventListener.onSpeechEvent(name, params, data, offset, length);
+//            }
+//        });
 
         start();
-        getModel().initAccessToken();
-        getModel().setSenceId(KatConstant.UNIT_SENCE_KAT);
+//        getModel().initAccessToken();
+//        getModel().setSenceId(KatConstant.UNIT_SENCE_KAT);
 
     }
 
@@ -120,17 +120,17 @@ public class ServicePresenter extends KatPresenter<ServiceModel, ServiceView> im
         /**
          * 测试参数填在这里
          */
-        Map<String, Object> params = new LinkedHashMap<String, Object>();
-        String event = null;
-        event = SpeechConstant.ASR_START;
-
-        params.put(SpeechConstant.ACCEPT_AUDIO_VOLUME, false);
-        String json = "{\"accept-audio-data\":false,\"disable-punctuation\":false,\"accept-audio-volume\":true}"; //可以替换成自己的json
-        asr.send(event, json, null, 0, 0);
+//        Map<String, Object> params = new LinkedHashMap<String, Object>();
+//        String event = null;
+//        event = SpeechConstant.ASR_START;
+//
+//        params.put(SpeechConstant.ACCEPT_AUDIO_VOLUME, false);
+//        String json = "{\"accept-audio-data\":false,\"disable-punctuation\":false,\"accept-audio-volume\":true}"; //可以替换成自己的json
+//        asr.send(event, json, null, 0, 0);
     }
 
     private void stop() {
-        asr.send(SpeechConstant.ASR_STOP, null, null, 0, 0); //
+//        asr.send(SpeechConstant.ASR_STOP, null, null, 0, 0); //
     }
 
 
