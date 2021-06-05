@@ -9,6 +9,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Handler;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Gravity;
@@ -102,11 +103,33 @@ public class ServiceView extends KatView<KatServiceEventListener> implements ISe
     }
 
     private void setAllListener(View view){
+
         view.setOnClickListener(new View.OnClickListener() {
+            Handler handler = new Handler();
+            Boolean isDbClick = false;
+            Runnable r = null;
             @Override
             public void onClick(View view) {
-                if(getEventListener()!=null)getEventListener().onClick(view);
+                if (r == null ) {
+                    final View innerView = view;
+                    r = new Runnable() {
+                        @Override
+                        public void run() {
+                            isDbClick = false;
 
+                            if(getEventListener()!=null)getEventListener().onClick(innerView);
+                        }
+                    };
+                }
+                if (isDbClick) {
+                    isDbClick = false;
+
+                    if(getEventListener()!=null)getEventListener().onLongClick(view);
+                    handler.removeCallbacks(r);
+                } else {
+                    isDbClick = true;
+                    handler.postDelayed(r, 500);
+                }
             }
         });
         view.setOnLongClickListener(new View.OnLongClickListener() {
